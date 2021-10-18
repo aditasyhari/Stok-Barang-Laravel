@@ -1,0 +1,33 @@
+1. kode stok barang (done)
+2. kasir pembelian barang (done)
+3. riwayat barang keluar (done)
+4. riwayat pembelian pembeli (done)
+5. nota pembelian email/cetak (done)
+6. pemilik bisa delete akun sekertaris (done)
+7. fungsi semua cetak pdf (done)
+8. grafik modal (done)
+
+===================================================================
+Tambahan
+- cetak pdf lengkap barang (done)
+- register redirect back (done)
+- button batal kasir (done)
+- kasir tidak dapat proses pembelian ketika tidak ada barang (done)
+- profile (done)
+
+Tambahan & perbaikan :
+1. Fungsi tombol hapus di halaman riwayat pembeli berfungsi menghapus salah satu data pembeli beserta riwayat pembeliannya (done)
+2. Di halaman kasir ketika menginput barang ada salah satu yang kosong maka ada peringatan, dan ketika mau di proses atau save ada pop up "apakah data sudah benar" lalu ada pilihan ya dan tidak (done)
+3. Fungsi hapus eror (done)
+
+============================================================================
+
+List Revisi
+
+1. Filter barang masuk dan keluar di dashboard (done)
+2. jumlah keseluruhan barang di dashboard (done)
+5. Print barang masuk dan keluar di dashboard di edit (done)
+4. Tambah stok di dashboard (done)
+6. Tanggal expired headlight (done)
+3. Cetak laporan stok barang (done)
+7. Tampilan Barang apa yang paling banyak di beli dan yang kurang diminati (done)
