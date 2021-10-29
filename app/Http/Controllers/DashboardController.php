@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\data_pembeli;
 use App\Riwayat;
-use App\stok_barang;
+use Carbon\Carbon;
 use App\BarangMasuk;
+use App\stok_barang;
+use App\data_pembeli;
+use Carbon\CarbonPeriod;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 Use App\Pembelian;
 
 class DashboardController extends Controller
@@ -100,5 +102,39 @@ class DashboardController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function filter_bk(Request $request)
+    {
+        $barang_keluar = Pembelian::where('kode_barang', $request->filter_bk)
+                        ->whereBetween('created_at', [$request->tglawal, $request->tglakhir])
+                        ->select([
+                            DB::raw('sum(jumlah) as daily'),
+                            DB::raw('date(created_at) as date'),
+                        ])
+                        ->groupBy('date')
+                        ->pluck('daily', 'date');
+
+        // $period = new CarbonPeriod('2021-08-10', '1 day', '2021-10-28');
+
+        // // Fill zeroes
+        // foreach ($period as $date) {
+        //     if (!isset($barang_keluar[$date->toDateString()])) {
+        //         $barang_keluar[$date->toDateString()] = 0;
+        //     }
+        // }
+
+        // // Convert to associative array
+        // $barang_keluar = $barang_keluar->values()->toArray();
+
+        $datatable = [];
+        foreach($barang_keluar as $key => $bk) {
+            // $tgl = date_format($key, 'd/m/y');
+            $datatable[] = [$key, intval($bk)];
+        }
+
+        // dd($datatable);
+        // $data = ["datatable"=>$datatable];
+        return response()->json($datatable);
     }
 }

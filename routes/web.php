@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +36,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Dashboard
 Route::get('/dashboard/dashboard', 'DashboardController@index');
-Route::post('/filterdata','DashboardController@filter');
 
+Route::post('/filterdata','DashboardController@filter');
 Route::get('/filterdata','DashboardController@filter');
+
+Route::post('/filterdata_bk','DashboardController@filter_bk');
+Route::get('/filterdata_bk','DashboardController@filter_bk');
 
 //Data Transaksi
 Route::get('/data_transaksi/data_transaksi', 'TransaksiController@index');
