@@ -115,17 +115,6 @@ class DashboardController extends Controller
                         ->groupBy('date')
                         ->pluck('daily', 'date');
 
-        // $period = new CarbonPeriod('2021-08-10', '1 day', '2021-10-28');
-
-        // // Fill zeroes
-        // foreach ($period as $date) {
-        //     if (!isset($barang_keluar[$date->toDateString()])) {
-        //         $barang_keluar[$date->toDateString()] = 0;
-        //     }
-        // }
-
-        // // Convert to associative array
-        // $barang_keluar = $barang_keluar->values()->toArray();
 
         $datatable = [];
         foreach($barang_keluar as $key => $bk) {
